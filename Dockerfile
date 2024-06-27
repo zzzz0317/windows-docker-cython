@@ -15,7 +15,7 @@ RUN powershell ".\buildtools.exe --quiet --wait --norestart --nocache --add Micr
 #================================#
 # Installing python
 RUN powershell "Invoke-WebRequest -Outfile python-3.12.4-amd64.exe -Uri https://www.python.org/ftp/python/3.12.4/python-3.12.4-amd64.exe"
-RUN powershell ".\python-3.12.4-amd64.exe /passive InstallAllUsers=1 TargetDir=C:\Python PrependPath=1 Shortcuts=0 Include_doc=0"
+RUN cmd /c start /wait python-3.12.4-amd64.exe /passive InstallAllUsers=1 TargetDir=C:\Python PrependPath=1 Shortcuts=0 Include_doc=0
 
 #================================#
 ENTRYPOINT [ "cmd" ]
