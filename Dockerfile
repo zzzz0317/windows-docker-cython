@@ -5,12 +5,7 @@ SHELL ["cmd", "/S", "/C"]
 
 #================================#
 # Download and build chocolatey
-RUN powershell "Set-ExecutionPolicy Bypass -Scope Process -Force"
-RUN powershell "[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072"
-RUN powershell "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"
-
-# importing chocolatey functions in the powershell
-RUN powershell "Import-Module ${env:ChocolateyInstall}\\helpers\\chocolateyProfile.psm1"
+RUN powershell "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
 
 #================================#
 # Adds Visual Studio + recommend tools
