@@ -10,7 +10,7 @@ RUN powershell "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.Se
 #================================#
 # Adds Visual Studio + recommend tools
 RUN powershell "Invoke-WebRequest -Outfile buildtools.exe -Uri https://aka.ms/vs/17/release/vs_BuildTools.exe"
-RUN powershell ".\buildtools.exe --quiet --wait --norestart --nocache --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended"
+RUN cmd /c start /wait buildtools.exe --quiet --wait --norestart --nocache --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended
 
 #================================#
 # Installing python
