@@ -13,6 +13,7 @@ RUN powershell "Invoke-WebRequest -Outfile buildtools.exe -Uri https://aka.ms/vs
 RUN cmd /c start /wait buildtools.exe --quiet --wait --norestart --nocache --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended
 RUN powershell "Invoke-WebRequest -Outfile vc_redist.x64.exe -Uri https://aka.ms/vs/17/release/vc_redist.x64.exe"
 RUN cmd /c start /wait vc_redist.x64.exe /install /passive /norestart
+RUN setx PATH "%PATH%;C:\Program Files (x86)\Windows Kits\10\Redist\ucrt\DLLs\x64"
 
 #================================#
 # Installing python
