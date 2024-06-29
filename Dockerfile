@@ -21,4 +21,4 @@ RUN powershell "Invoke-WebRequest -Outfile python-3.12.4-amd64.exe -Uri https://
 RUN cmd /c start /wait python-3.12.4-amd64.exe /passive InstallAllUsers=1 TargetDir=C:\Python PrependPath=1 Shortcuts=0 Include_doc=0
 
 #================================#
-ENTRYPOINT [ "cmd" ]
+ENTRYPOINT [ "powershell" ]
